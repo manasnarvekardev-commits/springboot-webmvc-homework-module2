@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring-boot-web-mvc-homework-module2
+  datasource:
+    url: jdbc:postgresql://localhost:5432/DepartmentDB
+    username: postgres
+    password: Tpomsm@2610.postgres6
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
