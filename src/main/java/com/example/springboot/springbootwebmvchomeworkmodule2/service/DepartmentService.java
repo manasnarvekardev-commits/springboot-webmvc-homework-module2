@@ -8,9 +8,7 @@ import com.example.springboot.springbootwebmvchomeworkmodule2.repository.Departm
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -24,6 +22,13 @@ public class DepartmentService {
         return departmentEntities.stream()
                 .map(department -> modelMapper.map(department, DepartmentDTO.class))
                 .collect(Collectors.toList());
+    }
+
+    public DepartmentDTO getDeptById(Long departmentId) {
+        Department departmentById = departmentRepository
+                .findById(departmentId)
+                .orElseThrow(() -> new ResourceNotFoundException("The department with the id: " + departmentId + " does not exists"));
+        return modelMapper.map(departmentById, DepartmentDTO.class);
     }
 
     public DepartmentDTO createNewDept(DepartmentDTO departmentDTO) {
@@ -47,11 +52,5 @@ public class DepartmentService {
         if (!exists) return false;
         departmentRepository.deleteById(departmentId);
         return true;
-    }
-
-
-    public DepartmentDTO getDeptById(Long departmentId) {
-        Optional<Department> byId = departmentRepository.findById(departmentId);
-        return modelMapper.map(byId, DepartmentDTO.class);
     }
 }
