@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = PrimeNumberValidator.class)
 public @interface PrimeNumber {
-    String message() default "{jakarta.validation.constraints.Email.message}";
+    String message() default "Prime number should greater than 1, should be divisible by itself and number 1";
 
     Class<?>[] groups() default { };
 

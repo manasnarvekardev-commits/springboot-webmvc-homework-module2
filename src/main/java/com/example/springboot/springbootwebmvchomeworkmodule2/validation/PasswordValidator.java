@@ -12,6 +12,4 @@ public class PasswordValidator implements ConstraintValidator<Password, String> 
         if (value == null) return false;
         return value.matches(PASSWORD_PATTERN);
     }
-
-
 }
