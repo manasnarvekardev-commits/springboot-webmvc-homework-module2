@@ -1,5 +1,6 @@
 package com.example.springboot.springbootwebmvchomeworkmodule2.dto;
 
+import com.example.springboot.springbootwebmvchomeworkmodule2.validation.Password;
 import com.example.springboot.springbootwebmvchomeworkmodule2.validation.PrimeNumber;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -95,6 +96,10 @@ public class EmployeeDTO {
 
     @NotEmpty
     private List<String> emergencyContacts;
+
+    @Password
+    private String employeePassword;
+
 
 }
 
