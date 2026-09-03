@@ -1,5 +1,6 @@
 package com.example.springboot.springbootwebmvchomeworkmodule2.dto;
 
+import com.example.springboot.springbootwebmvchomeworkmodule2.validation.PrimeNumber;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -53,6 +54,7 @@ public class EmployeeDTO {
     private LocalDate joiningDate;
 
     @Range(min = 1, max = 5)
+    @PrimeNumber
     private Integer performanceRating;
 
     @FutureOrPresent
